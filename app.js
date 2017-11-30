@@ -51,6 +51,6 @@ server.on("connection", function(socket){
 	});
 });
 
-server.listen(9000, function(){
+server.listen(process.env.PORT || 5000, function(){
 	console.log("server is listening to %j", server.address());
 });
