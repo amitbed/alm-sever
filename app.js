@@ -17,8 +17,8 @@ var server = net.createServer();
 
 server.on("connection", function(socket){
 	console.log("new client connection is made with: %j" + socket.address());
-	console.log("local address:  %s" + socket.localAddress;
-	console.log("local address:  %d" + socket.localPort;
+	console.log("local address:  %s" + socket.localAddress);
+	console.log("local address:  %d" + socket.localPort);
 	//open a new socket with the http server
 
 
