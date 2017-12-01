@@ -42,9 +42,9 @@ server.on("connection", function(socket){
 
 		var req = http.request(options, callback).end();
 		if (_data == null ){ 
-			console.log("request is null!!!!!");
+			console.log("_data is null!!!!!");
 		}else{
-			console.log("request is NOT null");
+			console.log("_data is NOT null");
 		}
 		req.write(_data); // Posting the data that 
 		req.end();
