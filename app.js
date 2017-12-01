@@ -16,9 +16,9 @@ var options = {
 var server = net.createServer();
 
 server.on("connection", function(socket){
-	console.log("new client connection is made with: %j" + socket.address());
-	console.log("local address:  %s" + socket.localAddress);
-	console.log("local address:  %d" + socket.localPort);
+	console.log("new client connection is made with: %j", socket.address());
+	console.log("local address:  %s",socket.localAddress);
+	console.log("local address:  %d", socket.localPort);
 	//open a new socket with the http server
 
 
@@ -42,6 +42,7 @@ server.on("connection", function(socket){
 		}
 
 		var req = http.request(options, callback).end(); 
+		console.log("request is null? " + (req == null));
 		req.write(_data); // Posting the data that 
 		req.end();
 	});
