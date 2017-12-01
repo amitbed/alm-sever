@@ -2,10 +2,9 @@ var net = require('net');
 var http = require('http');
 
 
-var _data = '';
 //The url we want is `www.nodejitsu.com:1337/`
 var options = {
-  host: 'http://localhoast',
+  host: 'localhost',
   path: '/',
   //since we are listening on a custom port, we need to specify it by hand
   port: '9000',
@@ -19,10 +18,13 @@ server.on("connection", function(socket){
 	console.log("new client connection is made");
 	console.log("remote address:  %s",socket.remoteAddress);
 	console.log("remote address:  %d", socket.remotePort);
+	var _data = '';
 	//open a new socket with the http server
 
 	socket.on("data", function(data){
-		_data += data;
+		//console.log("curr is %s", data);
+		_data += data; 																				// TODO: fix
+		//console.log("payload is now %s", _data);
 	});
 
 	socket.once("close", function(){
@@ -40,12 +42,7 @@ server.on("connection", function(socket){
 		  });
 		}
 
-		var req = http.request(options, callback).end();
-		if (_data == null ){ 
-			console.log("_data is null!!!!!");
-		}else{
-			console.log("_data is NOT null");
-		}
+		var req = http.request(options, callback);
 		req.write(_data); // Posting the data that 
 		req.end();
 	});
