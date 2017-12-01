@@ -15,7 +15,7 @@ var options = {
 var server = net.createServer();
 
 server.on("connection", function(socket){
-	console.log("new client connection is made");
+	console.log("new client connection is made!");
 	console.log("remote address:  %s",socket.remoteAddress);
 	console.log("remote address:  %d", socket.remotePort);
 	var _data = '';
