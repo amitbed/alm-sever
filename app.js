@@ -16,11 +16,10 @@ var options = {
 var server = net.createServer();
 
 server.on("connection", function(socket){
-	console.log("new client connection is made with: %j", socket.address());
-	console.log("local address:  %s",socket.localAddress);
-	console.log("local address:  %d", socket.localPort);
+	console.log("new client connection is made");
+	console.log("remote address:  %s",socket.remoteAddress);
+	console.log("remote address:  %d", socket.remotePort);
 	//open a new socket with the http server
-
 
 	socket.on("data", function(data){
 		_data += data;
@@ -42,7 +41,7 @@ server.on("connection", function(socket){
 		}
 
 		var req = http.request(options, callback).end();
-		if (req == null){ 
+		if (_data == null ){ 
 			console.log("request is null!!!!!");
 		}else{
 			console.log("request is NOT null");
